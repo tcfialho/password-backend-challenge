@@ -1,0 +1,37 @@
+name: .NET Core
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  merge-master:
+
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged
+    
+    steps:
+    - name: Checkout
+      if: github.event.pull_request.merged
+      uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    - name: Build
+      run: dotnet build -c Release
+
+    - name: Test
+      run: |
+          dotnet test "--logger:junit;LogFilePath=./test-reports/results.xml" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput="coverage.xml" /p:Thereshold=80
+
+    - name: Publish Coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: | 
+          curl -s https://codecov.io/bash > codecov
+          chmod +x codecov
+          find . -name "coverage.xml" -print -quit | xargs -i bash -c "cp {} coverage.xml;"
+          ./codecov -f "coverage.xml" -t $CODECOV_TOKEN
