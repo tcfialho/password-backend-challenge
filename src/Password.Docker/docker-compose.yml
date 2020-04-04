@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  password.api:
+    image: ${DOCKER_REGISTRY-}passwordapi
+    build:
+      context: .
+      dockerfile: Password.Api/Dockerfile
