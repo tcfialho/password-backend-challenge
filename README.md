@@ -3,7 +3,7 @@ Temos duas opções para rodar o projeto, uma dependente da instalação do dock
 
 Executando em um container (Docker requerido):
 1- Instale o docker https://docs.docker.com/
-2- Va até a pasta password-api\src e execute o comando:
+2- Va até a pasta password-api\src\Password.Docker e execute o comando:
    docker-compose up
 3- Abra o swagger da aplicação: http://localhost:5000/swagger e utilize a interface do swagger para testar a API.
 
