@@ -1,4 +1,4 @@
-![Status](https://github.com/tcfialho/password-backend-challenge/workflows/password-backend-challenge/badge.svg) ![Coverage](https://codecov.io/gh/tcfialho/password-backend-challenge/branch/master/graph/badge.svg)
+![Status](https://github.com/tcfialho/password-backend-challenge/workflows/password-backend-challenge/badge.svg) [![Coverage](https://codecov.io/gh/tcfialho/password-backend-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/tcfialho/password-backend-challenge)
 
 # Como executar
 Temos duas opções para rodar o projeto, uma dependente da instalação do docker e outra dependente da instalação do .NET Core 3.1 SDK na maquina.
