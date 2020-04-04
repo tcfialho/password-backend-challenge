@@ -48,8 +48,3 @@ Queremos que você escreva essa solução pensando que ao nos enviar ela estará
 - Design de API
 - Clean Code
 - SOLID
-
-# Para nos enviar a solução
-Sua solução deve possuir um README com instruções básicas de como executá-la.
-
-Fique à vontade para explicar no readme qualquer decisão técnica que tenha tomado e considere importante.
