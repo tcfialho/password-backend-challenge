@@ -20,3 +20,13 @@ jobs:
       run: |
           cd src
           dotnet test "--logger:junit;LogFilePath=./test-reports/results.xml" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput="coverage.xml" /p:Thereshold=80
+
+    - name: Publish Coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: | 
+          cd src
+          curl -s https://codecov.io/bash > codecov
+          chmod +x codecov
+          find . -name "coverage.xml" -print -quit | xargs -i bash -c "cp {} coverage.xml;"
+          ./codecov -f "coverage.xml" -t $CODECOV_TOKEN
